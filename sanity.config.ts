@@ -10,7 +10,7 @@ const config = defineConfig({
     title: "Personal Website",
     apiVersion: '2021-10-21',
     basePath: "/admin",
-    useCdn: true,
+    useCdn: false,
     plugins: [deskTool(), visionTool(), codeInput()],
     schema: { types: schemas }
 });
