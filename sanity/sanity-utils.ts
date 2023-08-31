@@ -6,7 +6,7 @@ export async function getPosts(): Promise<Post[]>{
         projectId: "zo1e4sf7",
         dataset: "production",
         apiVersion: "2021-10-21",
-        useCdn: true,
+        useCdn: false,
     });
 
     return client.fetch(
