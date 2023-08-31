@@ -1,6 +1,7 @@
+import { Post } from "@/types/post";
 import { createClient, groq } from "next-sanity";
 
-export async function getPosts(){
+export async function getPosts(): Promise<Post[]>{
     const client = createClient({
         projectId: "zo1e4sf7",
         dataset: "production",
@@ -8,7 +9,7 @@ export async function getPosts(){
     });
 
     return client.fetch(
-        groq`*[_type == "post"]| order(_createdAt asc){
+        groq`*[_type == "post"]| order(_createdAt desc){
             _id,
             _createdAt,
             title,
