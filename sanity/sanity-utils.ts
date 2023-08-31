@@ -1,16 +1,10 @@
 import { Post } from "@/types/post";
 import { createClient, groq } from "next-sanity";
+import config from "./config/client-config";
 
 export async function getPosts(): Promise<Post[]>{
-    const client = createClient({
-        projectId: "zo1e4sf7",
-        dataset: "production",
-        apiVersion: "2021-10-21",
-        useCdn: false,
-    });
-
-    return client.fetch(
-        groq`*[_type match "post"] | order(_createdAt desc){
+    const posts = await createClient(config).fetch(
+        groq`*[_type == "post"] | order(_createdAt desc){
             _id,
             _createdAt,
             title,
@@ -19,5 +13,7 @@ export async function getPosts(): Promise<Post[]>{
             "image": mainImage.asset->url,
             body,
         }`
-    )
-}
+    );
+
+    return posts;
+};

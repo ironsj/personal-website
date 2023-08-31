@@ -6,11 +6,10 @@ import { codeInput } from "@sanity/code-input";
 
 const config = defineConfig({
     projectId: "zo1e4sf7",
-    dataset: "production",
+    dataset: "develop",
     title: "Personal Website",
     apiVersion: '2021-10-21',
     basePath: "/admin",
-    useCdn: false,
     plugins: [deskTool(), visionTool(), codeInput()],
     schema: { types: schemas }
 });
