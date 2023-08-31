@@ -12,7 +12,7 @@ const post = {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'name' }
+      options: { source: 'title' }
     },
     {
       name: 'publishedAt',
@@ -36,10 +36,17 @@ const post = {
       name: 'body',
       title: 'Body',
       type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
+      of: [ { type: 'block', },
+            { type: 'image',
+              fields: [
+                {
+                  name: 'alt',
+                  title: 'Alternative text',
+                  type: 'string',
+                },
+              ],
+            },
+            { type: 'code', options: { theme: 'github' } },
       ],
     },
   ],

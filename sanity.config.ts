@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
-import post from "./sanity/schemas/post-schema";
+import schemas from "./sanity/schemas";
+import { codeInput } from "@sanity/code-input";
 
 const config = defineConfig({
     projectId: "zo1e4sf7",
@@ -8,8 +9,8 @@ const config = defineConfig({
     title: "Personal Website",
     apiVersion: "2023-08-29",
     basePath: "/admin",
-    plugins: [deskTool()],
-    schema: { types: [post] }
+    plugins: [deskTool(), codeInput()],
+    schema: { types: schemas }
 });
 
 export default config;
