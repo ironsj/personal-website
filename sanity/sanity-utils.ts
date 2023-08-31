@@ -17,3 +17,20 @@ export async function getPosts(): Promise<Post[]> {
 
   return posts;
 }
+
+export async function getPost(slug: string): Promise<Post> {
+  const post = await createClient(config).fetch(
+    groq`*[_type == "post" && slug.current == $slug][0]{
+            _id,
+            _createdAt,
+            title,
+            "slug": slug.current,
+            publishedAt,
+            mainImage {alt, "image": asset->url},
+            body,
+        }`,
+    { slug }
+  );
+
+  return post;
+}
