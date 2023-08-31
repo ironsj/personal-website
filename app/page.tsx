@@ -20,7 +20,7 @@ export default async function Home() {
         {posts.map((post) => (
           <div
             key={post._id}
-            className="border-2 border-gray-500 rounded-lg p-1"
+            className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition"
           >
             {post.mainImage.image && (
               <Image
@@ -28,6 +28,7 @@ export default async function Home() {
                 alt={post.mainImage.alt}
                 width={750}
                 height={300}
+                objectFit="contain"
                 className="object-cover rounded-lg border border-gray-500"
               />
             )}
