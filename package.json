@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sanity/code-input": "^4.1.1",
+    "@sanity/vision": "^3.16.1",
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
