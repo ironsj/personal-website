@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../globals.css";
 import type { Metadata } from "next";
 import { getPages } from "@/sanity/sanity-utils";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Jacob Irons",
@@ -37,7 +38,10 @@ export default async function RootLayout({
             ))}
           </div>
         </header>
-        <main className="py-20">{children}</main>
+        <main className="py-20">
+          {children}
+          <Analytics />
+        </main>
       </body>
     </html>
   );
