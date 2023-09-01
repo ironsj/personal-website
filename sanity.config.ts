@@ -4,11 +4,15 @@ import { visionTool } from "@sanity/vision";
 import schemas from "./sanity/schemas";
 import { codeInput } from "@sanity/code-input";
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION!;
+
 const config = defineConfig({
-  projectId: "zo1e4sf7",
-  dataset: "develop",
+  projectId,
+  dataset,
   title: "Personal Website",
-  apiVersion: "2021-10-21",
+  apiVersion,
   basePath: "/admin",
   plugins: [deskTool(), visionTool(), codeInput()],
   schema: { types: schemas },
